@@ -1,0 +1,40 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="lib/bootstrap.css">
+
+	<script src="lib/angular.min.js"></script>
+	<script src="lib/angular-locale_de-de.js"></script>
+
+	<script src="googleapps.js"></script>
+</head>
+
+<body ng-app="OpenGoogleApps">
+
+<div ng-controller="AppController">
+
+	<div class="container">
+		<h2>Open shared google docs in iOS apps</h2>
+		<p>
+			Paste link here:<br>
+			<input type="text" placeholder="https://docs.google.com/spreadsheets/..." size="120"
+				   ng-model="vm.doclink" ng-change="makeAppLink()"/>
+		</p>
+		<p>
+			<button ng-click="clear()" class="btn btn-danger">Clear</button>
+			<a ng-href={{vm.applink}} ng-disabled="!vm.buttonEnabled"
+			   class="btn btn-primary" role="button">Open in {{vm.appname}} iOS App</a>
+		</p>
+		<p ng-show="vm.applink.length > 10">
+			Link for Safari iOS app:<br>
+			<a ng-href="{{vm.applink}}">{{vm.applink}}</a>
+		</p>
+	</div>
+
+</div> <!-- controller -->
+
+</body>
+</html>
