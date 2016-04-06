@@ -28,13 +28,13 @@ app.controller('AppController', function ($scope, $rootScope, $http, $filter, $l
 
         if (/docs\.google\.com\/document/.test($scope.vm.doclink)) {
             console.info("looks like a document");
-            $scope.vm.applink = "googledocs:"+ $scope.vm.doclink;
+            $scope.vm.applink = "googledocs:" + $scope.vm.doclink;
             $scope.vm.appname = "GoogleDocs";
             $scope.vm.buttonEnabled = true;
 
         } else if (/docs\.google\.com\/spreadsheet/.test($scope.vm.doclink)) {
             console.info("looks like a spreadsheet");
-            $scope.vm.applink = "googlesheets:"+ $scope.vm.doclink;
+            $scope.vm.applink = "googlesheets:" + $scope.vm.doclink;
             $scope.vm.appname = "GoogleSheets";
             $scope.vm.buttonEnabled = true;
 
