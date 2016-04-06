@@ -7,4 +7,4 @@ Tool to open shared Google documents in Google's iOS Apps (for iPhone or iPad)
 * Supports only Google Apps for Apple iOS
 * Here's a shared document for Tests and Comments:
 
-[https://docs.google.com/document/d/1-tmUJFWlizc1FkkJDsvOE7jEgBuk89wZCpK8X8Y-wFg/edit?usp=sharing](http://)
+[https://docs.google.com/document/d/1-tmUJFWlizc1FkkJDsvOE7jEgBuk89wZCpK8X8Y-wFg/edit?usp=sharing](http://docs.google.com)
