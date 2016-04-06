@@ -5,19 +5,14 @@ var app = angular.module('OpenGoogleApps', []);
 app.config(['$compileProvider',
     function ($compileProvider) {
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(http?|googledocs|googlesheets|googleslides):/);
-        //$compileProvider.imgSrcSanitizationWhitelist(/^\s*(googledocs|googlesheets|googleslides):/);
     }
 ]);
 
 app.controller('AppController', function ($scope, $rootScope, $http, $filter, $location) {
 
-    console.info("OpenGoogleApps 06.04.2016");
+    console.info("OpenGoogleApps 07.04.2016");
 
-    $scope.vm = {
-        doclink: "",
-        applink: "",
-        appname: "Google's"
-    }
+    $scope.vm = {}
 
     $scope.clear = function() {
         console.info("clear()");
@@ -57,6 +52,6 @@ app.controller('AppController', function ($scope, $rootScope, $http, $filter, $l
         console.info("applink: %s", $scope.vm.applink);
     }
 
-    $scope.makeAppLink();
+    $scope.clear();
 
 });
