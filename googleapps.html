@@ -16,11 +16,11 @@
 <div ng-controller="AppController">
 
 	<div class="container">
-		<h2>Open shared google docs in iOS apps</h2>
+		<h2>Open shared Google doc in iOS apps</h2>
 		<p>
 			Paste link here:<br>
 			<input type="text" placeholder="https://docs.google.com/spreadsheets/..." size="120"
-				   ng-model="vm.doclink" ng-change="makeAppLink()"/>
+				   ng-model="vm.doclink" ng-change="doclinkChanged()"/>
 		</p>
 		<p>
 			<button ng-click="clear()" class="btn btn-danger">Clear</button>

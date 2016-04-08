@@ -8,9 +8,9 @@ app.config(['$compileProvider',
     }
 ]);
 
-app.controller('AppController', function ($scope, $rootScope, $http, $filter, $location) {
+app.controller('AppController', function ($scope) {
 
-    console.info("OpenGoogleApps 07.04.2016");
+    console.info("OpenGoogleApps 20160408");
 
     $scope.vm = {}
 
@@ -22,36 +22,41 @@ app.controller('AppController', function ($scope, $rootScope, $http, $filter, $l
         $scope.vm.buttonEnabled = false;
     }
 
-    $scope.makeAppLink = function() {
-        console.info("makeAppLink()");
+    $scope.setAppLink = function(googleApplication) {
+        console.info("setAppLink(%s)", googleApplication);
+        $scope.vm.applink = googleApplication + ":" + $scope.vm.doclink;
+        $scope.vm.appname = googleApplication;
+        $scope.vm.buttonEnabled = true;
+        console.info("applink: %s", $scope.vm.applink);
+    }
+
+    $scope.doclinkChanged = function() {
+        console.info("doclinkChanged()");
         console.info("doclink: %s", $scope.vm.doclink);
 
         if (/docs\.google\.com\/document/.test($scope.vm.doclink)) {
-            console.info("looks like a document");
-            $scope.vm.applink = "googledocs:" + $scope.vm.doclink;
-            $scope.vm.appname = "GoogleDocs";
-            $scope.vm.buttonEnabled = true;
+            $scope.setAppLink("GoogleDocs");
 
         } else if (/docs\.google\.com\/spreadsheet/.test($scope.vm.doclink)) {
-            console.info("looks like a spreadsheet");
-            $scope.vm.applink = "googlesheets:" + $scope.vm.doclink;
-            $scope.vm.appname = "GoogleSheets";
-            $scope.vm.buttonEnabled = true;
+            $scope.setAppLink("GoogleSheets");
 
         } else if (/docs\.google\.com\/presentation/.test($scope.vm.doclink)) {
-            console.info("looks like a presentation");
-            $scope.vm.applink = "googleslides:" + $scope.vm.doclink;
-            $scope.vm.appname = "GoggleSlides";
-            $scope.vm.buttonEnabled = true;
+            $scope.setAppLink("GoogleSlides");
 
         } else {
             $scope.vm.applink = "";
             $scope.vm.appname = "Google's";
             $scope.vm.buttonEnabled = false;
         }
-        console.info("applink: %s", $scope.vm.applink);
+    }
+
+    $scope.runTest = function() {
+        console.info("runTest()");
+        $scope.vm.doclink="https://docs.google.com/document/d/1-tmUJFWlizc1FkkJDsvOE7jEgBuk89wZCpK8X8Y-wFg/edit?usp=sharing";
+        $scope.doclinkChanged();
     }
 
     $scope.clear();
+    //$scope.runTest();
 
 });
