@@ -18,7 +18,7 @@ app.controller('AppController', function ($scope) {
         console.info("clear()");
         $scope.vm.doclink = "";
         $scope.vm.applink = "";
-        $scope.vm.appname = "Google's";
+        $scope.vm.appname = "Googles";
         $scope.vm.buttonEnabled = false;
     }
 
